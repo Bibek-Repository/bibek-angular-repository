@@ -1,0 +1,112 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8" style="background-color: red">
+      <div class="card">
+        <!-- <ul>
+          <li *ngFor="let item of posts">
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.completed }}</p>
+          </li>
+          </ul> -->
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>userid</th>
+                <th>id</th>
+                <th>title</th>
+                <th>completed</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of tableData">
+                <td>{{ item.userId }}</td>
+                <td>{{ item.id }}</td>
+                <td>{{ item.title }}</td>
+                <td>{{ item.completed }}</td>
+                <!-- let trash={{item.id}}; -->
+                <button type="button" class="btn btn-dark" (click)="getPostById(item.id)">view</button>
+                
+                <div class="modal fade" id="dataModal" tabindex="-1" aria-labelledby="dataModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="dataModalLabel">Data in Pop-up</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body" style="background:grey">
+                        <!-- Display data here from card.component.ts -->
+                        <p><strong>Id:</strong> {{ selectedPost.id }}</p>
+                        <p><strong>Title:</strong> {{ selectedPost.title }}</p>
+                        <p><strong>Completed:</strong> {{ selectedPost.completed }}</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </tr>
+            </tbody>
+          </table>
+      </div> 
+      </div>
+
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <form
+              #loginForm="ngForm"
+              class="form-inline my-2 my-lg-0"
+              style="display: flex; flex-direction: column"
+              (ngSubmit)="submit()"
+            >
+              <label for="">fullname:</label>
+              <input
+                class="form-control mr-sm-2"
+                type="text"
+                placeholder="fullname"
+                name="fullname"
+                required
+                [(ngModel)]="model.fullname"
+              />
+              <br />
+              <label for="">email:</label>
+              <input
+                class="form-control mr-sm-2"
+                type="text"
+                placeholder="email"
+                name="email"
+                required
+                [(ngModel)]="model.email"
+              />
+              <br />
+              <label for="">phone:</label>
+              <input
+                class="form-control mr-sm-2"
+                type="text"
+                placeholder="phone"
+                name="phone"
+                required
+                [(ngModel)]="model.phone"
+              />
+              <br />
+              <button
+                [disabled]="!loginForm.valid"
+                class="btn btn-success my-2 my-sm-0"
+                type="submit"
+              >
+                Submit
+              </button>
+              <button
+                class="btn btn-success my-2 my-sm-0"
+                type="button"
+                (click)="clearField(loginForm)"
+              >
+                Cancel
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <app-childOfCard [parentValue]="values" (emitEvent)="receiverMode($event)"></app-childOfCard>
