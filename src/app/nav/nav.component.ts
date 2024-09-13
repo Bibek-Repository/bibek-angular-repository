@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertifyService } from '../service/alertify.service';
 import { Form, NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -10,7 +11,7 @@ import { Form, NgForm } from '@angular/forms';
 export class NavComponent implements OnInit {
   model: any={};
   loginMode= false;
-  constructor(private alertify:AlertifyService) { }
+  constructor(private alertify:AlertifyService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -19,6 +20,7 @@ export class NavComponent implements OnInit {
     this.alertify.success('user has been logged in');
     this.toggle();
     form.reset();
+    this.router.navigate(['/lists']);
   }
 
   toggle() {
@@ -27,7 +29,8 @@ export class NavComponent implements OnInit {
   loggedOutAlert() {
     this.alertify.success('user has been logged out');
     this.toggle();
-   
+    this.router.navigate(['/home']);
+    
   }
  
 }

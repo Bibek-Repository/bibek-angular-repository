@@ -13,10 +13,11 @@ import { MessagesComponent } from './messages/messages.component';
 import { appRoutes } from './routes';
 import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './Home/Home.component';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
-  declarations: [								
+  declarations: [									
     AppComponent,
       CardComponent,
       ChildOfCardComponent,
@@ -25,7 +26,8 @@ import { HomeComponent } from './Home/Home.component';
       MessagesComponent,
       NavComponent,
       HomeComponent,
-      HomeComponent
+      HomeComponent,
+      RegisterComponent
    ],
   imports: [
     BrowserModule,

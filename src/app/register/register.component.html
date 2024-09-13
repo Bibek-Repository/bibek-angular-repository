@@ -1,0 +1,33 @@
+<form #registerForm="ngForm" (ngSubmit)="register()">
+  <h2 class="text-center text-primary">Sign Up</h2>
+  <hr>
+
+  <div class="form-group">
+    <input type="text" class="form-control" name="username" placeholder="Username" required [(ngModel)]="model.username">
+  </div>
+
+  <div class="form-group">
+    <input type="password" class="form-control" name="password" placeholder="Password" required [(ngModel)]="model.password">
+  </div>
+
+  <div class="btn-group" >
+      <button class="btn btn-secondary btn-sm" type="button" style="margin-left: 50px; margin-top: 5px; margin-bottom:5px;">
+        Choose your Gender:
+      </button>
+      <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" style="margin-top: 5px; margin-bottom:5px;" data-bs-toggle="dropdown" aria-expanded="false">
+        <span class="visually-hidden">Click to select</span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">male</a></li>
+        <li><a class="dropdown-item" href="#">female</a></li>
+        <li><a class="dropdown-item" href="#">others</a></li>
+      </ul>
+    </div>
+  
+
+  <div class="form-group text-center">
+    <button class="btn btn-success" type="submit">Register</button>
+    <button class="btn btn-default" type="button" (click)="cancel()">Cancel</button>
+  </div>
+  
+</form>

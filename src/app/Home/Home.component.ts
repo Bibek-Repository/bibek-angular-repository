@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./Home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+registerMode = false;
   constructor() { }
 
   ngOnInit() {
   }
-
+registerToggle() {
+  this.registerMode=!this.registerMode;
+}
+receiverMode(data: boolean) {
+  this.registerMode = data;
+}
 }
